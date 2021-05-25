@@ -9,7 +9,17 @@ class SignInPage extends StatelessWidget {
   Future<void> _signInAnonymously() async {
     try {
       await auth.signInAnonymously();
-    } catch (e) {}
+    } catch (e) {
+      print(e.toString());
+    }
+  }
+
+  Future<void> _signInWithGoogle() async {
+    try {
+      await auth.signInWithGoogle();
+    } catch (e) {
+      print(e.toString());
+    }
   }
 
   @override
@@ -42,8 +52,8 @@ class SignInPage extends StatelessWidget {
             height: 50,
             child: SignInButton(
               Buttons.Google,
-              text: "Sign up with Google",
-              onPressed: () {},
+              text: "Sign in with Google",
+              onPressed: _signInWithGoogle,
             ),
           ),
           SizedBox(

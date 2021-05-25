@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "250032283620-eb30f97kcqv6n6usa890t9oh3r1t3ev2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tme_tracker",
+            "certificate_hash": "bb1c920361097c1dddef59741577989f18aa7c9b"
+          }
+        },
+        {
           "client_id": "250032283620-s4j0pna55ah70mcdsgkoahnqumf77pgv.apps.googleusercontent.com",
           "client_type": 3
         }
