@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "250032283620",
+    "project_id": "timetracker-cef3a",
+    "storage_bucket": "timetracker-cef3a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:250032283620:android:967c376cc3497560efb1f1",
+        "android_client_info": {
+          "package_name": "com.example.tme_tracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "250032283620-s4j0pna55ah70mcdsgkoahnqumf77pgv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCACeK49TwL0YAZ_tdJ-9Rtwm-ilPKOVrw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "250032283620-s4j0pna55ah70mcdsgkoahnqumf77pgv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
