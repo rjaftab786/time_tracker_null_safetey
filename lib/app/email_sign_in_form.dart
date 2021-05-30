@@ -59,13 +59,15 @@ FocusScope.of(context).requestFocus(_passwordFocusNode);
     final secondaryText = _formType == EmailSignInFormType.signIn
         ? "Need an account? Register"
         : 'Have an account? Sign in';
+    bool submitEnabled = _email.isEmpty && _password.isEmpty;
+
     return [
       _buildEmailTextField(),
       const SizedBox(height: 8.0),
       _buildPasswordTextField(),
       SizedBox(height: 20),
       ElevatedButton(
-        onPressed: _submit,
+        onPressed: submitEnabled ? _submit : null,
         child: Text(primaryText),
       ),
       TextButton(
