@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:time_tracker/services/auth.dart';
 
 enum EmailSignInFormType { signIn, register }
@@ -18,6 +17,8 @@ class EmailSignInForm extends StatefulWidget {
 class _EmailSignInFormState extends State<EmailSignInForm> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final FocusNode _emailFocusNode = FocusNode();
+  final FocusNode _passwordFocusNode = FocusNode();
 
   EmailSignInFormType _formType = EmailSignInFormType.signIn;
 
@@ -35,6 +36,10 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
     } catch (e) {
       print(e.toString());
     }
+  }
+
+  void _emailEditingComplete() {
+FocusScope.of(context).requestFocus(_passwordFocusNode);
   }
 
   void _toggleFormType() {
@@ -55,21 +60,9 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
         ? "Need an account? Register"
         : 'Have an account? Sign in';
     return [
-      TextField(
-        controller: _emailController,
-        decoration: InputDecoration(
-          labelText: 'Email',
-          hintText: 'test@test.com',
-        ),
-      ),
+      _buildEmailTextField(),
       const SizedBox(height: 8.0),
-      TextField(
-        controller: _passwordController,
-        decoration: InputDecoration(
-          labelText: 'Password',
-        ),
-        obscureText: true,
-      ),
+      _buildPasswordTextField(),
       SizedBox(height: 20),
       ElevatedButton(
         onPressed: _submit,
@@ -80,6 +73,36 @@ class _EmailSignInFormState extends State<EmailSignInForm> {
         child: Text(secondaryText),
       ),
     ];
+  }
+
+  TextField _buildPasswordTextField() {
+    return TextField(
+      focusNode: _passwordFocusNode,
+      controller: _passwordController,
+      decoration: InputDecoration(
+        labelText: 'Password',
+      ),
+      textInputAction: TextInputAction.done,
+      obscureText: true,
+      onEditingComplete: _submit,
+    );
+  }
+
+
+
+  TextField _buildEmailTextField() {
+    return TextField(
+      focusNode: _emailFocusNode,
+      controller: _emailController,
+      decoration: InputDecoration(
+        labelText: 'Email',
+        hintText: 'test@test.com',
+      ),
+      autocorrect: false,
+      keyboardType: TextInputType.emailAddress,
+      textInputAction: TextInputAction.next,
+      onEditingComplete: _emailEditingComplete,
+    );
   }
 
   @override
